@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 ---
 
 # Welcome to my Blog!
@@ -20,3 +20,4 @@ Check out my latest posts below:
     </a>
   {% endfor %}
 </div>
+
