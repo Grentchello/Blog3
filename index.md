@@ -48,7 +48,7 @@ layout: default
   }
 </style>
 
-# Project Logs
+# Books
 
 <div class="post-grid">
   {% for post in site.posts %}
@@ -59,3 +59,4 @@ layout: default
     </a>
   {% endfor %}
 </div>
+
