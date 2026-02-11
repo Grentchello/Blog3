@@ -2,13 +2,6 @@
 layout: default
 ---
 
-# Welcome to my Blog!
-
-I'll be posting updates on my **C# projects**, **vehicle dynamics simulations**, and **astrophotography** here. 
-
-
-Check out my latest posts below:
-
 <div class="post-grid">
   {% for post in site.posts %}
     <a href="{{ post.url | relative_url }}" class="post-tile">
@@ -20,4 +13,3 @@ Check out my latest posts below:
     </a>
   {% endfor %}
 </div>
-
