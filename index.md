@@ -3,60 +3,52 @@ layout: default
 ---
 
 <style>
+  /* Reuse the grid and card styles from before */
+  .category-section { margin-bottom: 40px; }
+  .category-title { 
+    border-bottom: 2px solid #0366d6; 
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    text-transform: capitalize;
+  }
   .post-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
-    padding: 20px 0;
   }
-
   .post-card {
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #e1e4e8;
     border-radius: 12px;
     padding: 20px;
-    text-decoration: none !important; /* Prevents default link underline */
+    text-decoration: none !important;
     color: #24292e !important;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: block;
+    transition: transform 0.2s;
   }
-
-  .post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    border-color: #0366d6;
-  }
-
-  .post-title {
-    margin: 0 0 10px 0;
-    font-size: 1.25rem;
-    color: #0366d6;
-  }
-
-  .post-date {
-    font-size: 0.85rem;
-    color: #586069;
-    margin-bottom: 12px;
-  }
-
-  .post-excerpt {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #444;
-  }
+  .post-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 </style>
 
-# Books
-
-<div class="post-grid">
-  {% for post in site.posts %}
-    <a href="{{ post.url | relative_url }}" class="post-card">
-      <h3 class="post-title">{{ post.title }}</h3>
-      <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-    </a>
-  {% endfor %}
+<div class="category-section">
+  <h2 class="category-title">Books</h2>
+  <div class="post-grid">
+    {% for post in site.categories.book %}
+      <a href="{{ post.url | relative_url }}" class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
+<div class="category-section">
+  <h2 class="category-title">Movies</h2>
+  <div class="post-grid">
+    {% for post in site.categories.movie %}
+      <a href="{{ post.url | relative_url }}" class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>
